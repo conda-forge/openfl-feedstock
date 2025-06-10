@@ -1,5 +1,5 @@
 {% set name = "openfl" %}
-{% set version = "1.8" %}
+{% set version = "1.9" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openfl-{{ version }}.tar.gz
-  sha256: bc2a933a9211e6f1776eb764e81b7599c238fc2eb75fd30b9ed89320b2349f4c
+  sha256: 012658aff8142afcd4fcef661c628f08369c3e97c9be084f71860ccdfb888059
 
 build:
   entry_points:
     - fx=openfl.interface.cli:entry
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -41,6 +41,7 @@ requirements:
     - tensorboardx
     - protobuf >=4.22,<6.0.0
     - grpcio >=1.56.2,<1.66.0
+    - flask ==3.1.1
 
 test:
   imports:
